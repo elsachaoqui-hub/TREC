@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>綠電憑證取得三大途徑</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f0fdf4; /* 淺綠背景 */
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            width: 1280px;
+            height: 720px;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            position: relative;
+        }
+        .header {
+            background-color: #00875A; /* 深綠色 */
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .content-area {
+            flex: 1;
+            padding: 40px 60px;
+            display: flex;
+            gap: 30px;
+            align-items: stretch;
+            background-color: #f8fafc;
+        }
+        .card {
+            flex: 1;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .card-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .card-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 0;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 14px;
+            font-weight: 500;
+            width: fit-content;
+        }
+        .card-body {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .mechanism-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .mechanism-item {
+            display: flex;
+            gap: 10px;
+            font-size: 16px;
+            color: #475569;
+            line-height: 1.5;
+        }
+        .mechanism-item i {
+            margin-top: 4px;
+            font-size: 14px;
+        }
+        .card-footer {
+            padding: 16px 24px;
+            background-color: #f8fafc;
+            border-top: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .cert-label {
+            font-size: 14px;
+            color: #64748b;
+            font-weight: 500;
+        }
+        .cert-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        
+        /* Card Variants */
+        .card-1 { border-top: 6px solid #40C057; }
+        .card-1 .card-icon { color: #40C057; }
+        .card-1 .status-badge { background-color: #dcfce7; color: #166534; }
+        .card-1 .mechanism-item i { color: #40C057; }
+
+        .card-2 { border-top: 6px solid #F59F00; }
+        .card-2 .card-icon { color: #F59F00; }
+        .card-2 .status-badge { background-color: #fef3c7; color: #92400e; }
+        .card-2 .mechanism-item i { color: #F59F00; }
+
+        .card-3 { border-top: 6px solid #228BE6; }
+        .card-3 .card-icon { color: #228BE6; }
+        .card-3 .status-badge { background-color: #dbeafe; color: #1e40af; }
+        .card-3 .mechanism-item i { color: #228BE6; }
+
+        .footer {
+            height: 40px;
+            background-color: #006644;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 40px;
+            color: rgba(255,255,255,0.8);
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<header class="header">
+<h1><i class="fa-solid fa-leaf"></i> 綠電憑證取得三大途徑</h1>
+<div style="font-size: 18px; opacity: 0.9;">綠電交易與憑證機制概覽</div>
+</header>
+<!-- Content Area -->
+<div class="content-area">
+<!-- Card 1: 轉直供制度 -->
+<div class="card card-1">
+<div class="card-header">
+<i class="fa-solid fa-plug-circle-bolt card-icon"></i>
+<h2 class="card-title">途徑一：轉直供制度</h2>
+<span class="status-badge"><i class="fa-solid fa-check-circle"></i> 現行制度</span>
+</div>
+<div class="card-body">
+<ul class="mechanism-list">
+<li class="mechanism-item">
+<i class="fa-solid fa-play"></i>
+<p>企業與發電業者或售電業者直接簽訂 <strong>CPPA (企業購電協議)</strong></p>
+</li>
+<li class="mechanism-item">
+<i class="fa-solid fa-play"></i>
+<p>台電作為代輸者，每 15分鐘核實發用電匹配量(綠電市場彈性分配試行計畫)</p>
+</li>
+<li class="mechanism-item">
+<i class="fa-solid fa-play"></i>
+<p>依匹配電量核發 <strong>T-REC</strong>，綠電部分排碳係數為 0</p>
+</li>
+<li class="mechanism-item">
+<i class="fa-solid fa-play"></i>
+<p>計入 Scope 2 (外購電力) 抵銷排放</p>
+</li>
+</ul>
+</div>
+<div class="card-footer">
+<span class="cert-label">憑證類型</span>
+<span class="cert-value">T-REC (再生能源憑證)</span>
+</div>
+</div>
+<!-- Card 2: 離岸風電 CfD -->
+<div class="card card-2">
+<div class="card-header">
+<i class="fa-solid fa-wind card-icon"></i>
+<h2 class="card-title">途徑二：特殊憑證</h2>
+<span class="status-badge"><i class="fa-solid fa-hourglass-half"></i> 規劃中 (CfD 機制研議中)</span>
+</div>
+<div class="card-body">
+<ul class="mechanism-list">
+<li class="mechanism-item">
+<i class="fa-solid fa-play"></i>
+<p>針對只簽轉供，不簽餘電契約設計 <strong>差價合約 (CfD)</strong></p>
+</li>
+<li class="mechanism-item">
+<i class="fa-solid fa-play"></i>
+<p>用戶透過價差機制平衡風險並取得特殊憑證</p>
+</li>
+<li class="mechanism-item">
+<i class="fa-solid fa-play"></i>
+<p>電能結清價格參考未來 <strong>MMS 電力市場價格</strong>(台電用迴避成本收購)</p>
+</li>
+<li class="mechanism-item">
+<i class="fa-solid fa-play"></i>
+<p>憑證歸屬買回者，計入 Scope 2 抵銷</p>
+</li>
+</ul>
+</div>
+<div class="card-footer">
+<span class="cert-label">憑證類型</span>
+<span class="cert-value">特殊憑證</span>
+</div>
+</div>
+<!-- Card 3: 自用發電設備 -->
+<div class="card card-3">
+<div class="card-header">
+<i class="fa-solid fa-solar-panel card-icon"></i>
+<h2 class="card-title">途徑三：自用發電設備交易</h2>
+<span class="status-badge"><i class="fa-solid fa-check-circle"></i> 現行制度</span>
+</div>
+<div class="card-body">
+<ul class="mechanism-list">
+<li class="mechanism-item">
+<i class="fa-solid fa-play"></i>
+<p>適用第二型 (≥2MW) 及第三型 (&lt;2MW) 自用設備</p>
+</li>
+<li class="mechanism-item">
+<i class="fa-solid fa-play"></i>
+<p>限制：必須<strong>未採用躉購制度 (FIT)</strong></p>
+</li>
+<li class="mechanism-item">
+<i class="fa-solid fa-play"></i>
+<p>透過 T-REC 平台進行現貨或預售拍賣</p>
+</li>
+<li class="mechanism-item">
+<i class="fa-solid fa-play"></i>
+<p>1,000 度 = 1 張憑證；憑證讓與原則以 1 次為限</p>
+</li>
+</ul>
+</div>
+<div class="card-footer">
+<span class="cert-label">憑證類型</span>
+<span class="cert-value">T-REC (再生能源憑證)</span>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<p>資料來源：經濟部能源署、國家再生能源憑證中心</p>
+</footer>
+</div>
+</body>
+</html>

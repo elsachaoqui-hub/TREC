@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>三種途徑比較分析</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            background-color: #f8fafc;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            position: relative;
+        }
+        
+        .header {
+            background-color: #00875A;
+            color: white;
+            padding: 0 40px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .content-wrapper {
+            flex: 1;
+            padding: 25px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        /* Table Section */
+        .table-section {
+            flex: 1.3;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+            table-layout: fixed;
+            height: 100%;
+        }
+        
+        .comparison-table th {
+            background-color: #f1f5f9;
+            color: #334155;
+            font-weight: 700;
+            text-align: left;
+            padding: 12px 20px;
+            border-bottom: 2px solid #cbd5e1;
+            font-size: 16px;
+        }
+        
+        .comparison-table th:first-child {
+            width: 14%;
+            background-color: #e2e8f0;
+            text-align: center;
+        }
+        
+        .comparison-table th:nth-child(2) { width: 28%; border-top: 4px solid #40C057; }
+        .comparison-table th:nth-child(3) { width: 28%; border-top: 4px solid #F59F00; }
+        .comparison-table th:nth-child(4) { width: 30%; border-top: 4px solid #228BE6; }
+        
+        .comparison-table td {
+            padding: 10px 20px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #475569;
+            vertical-align: middle;
+            line-height: 1.4;
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .comparison-table td:first-child {
+            font-weight: 700;
+            color: #334155;
+            background-color: #f8fafc;
+            text-align: center;
+            border-right: 1px solid #e2e8f0;
+        }
+        
+        .comparison-table tr:nth-child(even) td:not(:first-child) {
+            background-color: #fcfcfc;
+        }
+        
+        .status-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .status-active { background-color: #dcfce7; color: #166534; }
+        .status-planning { background-color: #fef3c7; color: #92400e; }
+        
+        /* Formula Section */
+        .formula-section {
+            flex: 0.8;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            padding: 20px 30px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #00875A;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .formula-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background-color: #f0fdf4;
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px dashed #40C057;
+            margin-bottom: 15px;
+        }
+        
+        .formula-box {
+            background: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            font-weight: 700;
+            color: #1e293b;
+            text-align: center;
+            min-width: 120px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .formula-box.highlight {
+            background-color: #00875A;
+            color: white;
+            border: none;
+        }
+        
+        .formula-box.green-power {
+            background-color: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+        }
+        
+        .formula-operator {
+            font-size: 24px;
+            font-weight: 700;
+            color: #64748b;
+        }
+        
+        .formula-subtext {
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            color: #64748b;
+            margin-top: 4px;
+        }
+        
+        .note-box {
+            background-color: #fffbeb;
+            border-left: 4px solid #fbbf24;
+            padding: 12px 20px;
+            border-radius: 0 4px 4px 0;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .note-icon {
+            font-size: 20px;
+            color: #d97706;
+        }
+        
+        .note-content {
+            font-size: 14px;
+            color: #78350f;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .footer {
+            height: 40px;
+            background-color: #006644;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 40px;
+            color: rgba(255,255,255,0.8);
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+		/* 新增分數結構樣式 */
+    .formula-fraction {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    .fraction-line {
+        width: 100%;
+        height: 2px;
+        background-color: #00875A; /* 使用主題綠色作為分數線 */
+        border-radius: 2px;
+    }
+    .numerator, .denominator {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 5px;
+    }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<header class="header">
+<h1><i class="fa-solid fa-scale-balanced"></i> 三種途徑比較分析</h1>
+<div style="font-size: 18px; opacity: 0.9;">效益歸屬與制度差異</div>
+</header>
+<!-- Content Wrapper -->
+<div class="content-wrapper">
+<!-- Table Section -->
+<div class="table-section">
+<table class="comparison-table">
+<thead>
+<tr>
+<th>比較項目</th>
+<th>途徑一<br/><span style="font-size:13px; font-weight:500;">轉直供制度</span></th>
+<th>途徑二<br/><span style="font-size:13px; font-weight:500;">核發特殊憑證</span></th>
+<th>途徑三<br/><span style="font-size:13px; font-weight:500;">二三型自用設備</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>現況</td>
+<td><span class="status-tag status-active"><i class="fa-solid fa-check"></i> 現行制度</span></td>
+<td><span class="status-tag status-planning"><i class="fa-solid fa-spinner"></i> 規劃中</span><span style="font-size:12px; color:#64748b;">(CfD機制研議中)</span></td>
+<td><span class="status-tag status-active"><i class="fa-solid fa-check"></i> 現行制度</span></td>
+</tr>
+<tr>
+<td>適用對象</td>
+<td>有 CPPA 之用電戶與發電業</td>
+<td>離岸風電發電業者等</td>
+<td>未採 FIT 之自用發電設備</td>
+</tr>
+<tr>
+<td>憑證類型</td>
+<td><strong>T-REC</strong> (再生能源憑證)</td>
+<td><strong>特殊憑證</strong> </td>
+<td><strong>T-REC</strong> (再生能源憑證)</td>
+</tr>
+<tr>
+<td>Scope 2<br/>效益歸屬</td>
+<td>持有 T-REC 者<br/><span style="font-size:12px; color:#00875A;">(排碳係數=0)</span></td>
+<td>透過 CfD 取得憑證之用戶</td>
+<td>自用者 或 平台買受人</td>
+</tr>
+<tr>
+<td>優點</td>
+<td><i class="fa-solid fa-thumbs-up text-green-600"></i> 電證合一、長期穩定</td>
+<td><i class="fa-solid fa-thumbs-up text-green-600"></i> 風險分散、解決開發成本</td>
+<td><i class="fa-solid fa-thumbs-up text-green-600"></i> 交易彈性、增加額外收益</td>
+</tr>
+<tr>
+<td>缺點/限制</td>
+<td>需負擔代輸費、餘電歸屬複雜</td>
+<td>細節複雜、迴避成本定價待確立</td>
+<td>憑證不可轉售、轉供難簽餘電</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="formula-section">
+    <div class="section-title">
+        <i class="fa-solid fa-calculator"></i> 電力排碳係數計算公式
+    </div>
+    
+    <div class="formula-container" style="justify-content: flex-start; padding: 30px;">
+        <div class="formula-box highlight">
+            電力排碳係數
+            <span class="formula-subtext">(kg CO2e/度)</span>
+        </div>
+
+        <div class="formula-operator">=</div>
+
+        <div class="formula-fraction" style="flex: 1;">
+            <div class="numerator">
+                <div class="formula-box">
+                    (發電業 + 自用發電設備) 躉售<br>公用售電業電量之電力排碳量
+                </div>
+                <div class="formula-operator">－</div>
+                <div class="formula-box">
+                    線損承擔之<br>電力排碳量
+                </div>
+            </div>
+
+            <div class="fraction-line"></div>
+
+            <div class="denominator">
+                <div class="formula-box green-power" style="min-width: 300px;">
+                    公用售電業總銷售電量
+                </div>
+            </div>
+        </div>
+    </div>
+	 <div class="note-box">
+        <i class="fa-solid fa-circle-info note-icon"></i>
+        <div class="note-content">
+            <p><strong>註：</strong>公用售電業總銷售電量 = 發電業及自用發電設備躉售予公用售電業電量 － 線損電量</p>
+        </div>
+    </div>
+	<div class="note-box">
+<i class="fa-solid fa-circle-exclamation note-icon"></i>
+<div class="note-content">
+<p><strong>避免重複計算原則：</strong>台電計算電力排碳係數時，須從分母扣除「已轉供/餘電憑證移轉電量」。<br/>
+                        影響評估：依環保處試算每 5 億度餘電將致電力排碳係數約上升 <strong>0.001 kg/kWh</strong>。</p>
+</div>
+</div>
+<!-- Formula Section -->
+<div class="formula-section">
+<div class="section-title">
+<i class="fa-solid fa-calculator"></i> Scope 2 排碳效益計算邏輯
+                </div>
+<div class="formula-container">
+<div class="formula-box highlight">
+                        企業總碳排
+                        <span class="formula-subtext">(Scope 2)</span>
+</div>
+<div class="formula-operator">=</div>
+<div class="formula-box green-power">
+                        綠電度數 × 0
+                        <span class="formula-subtext">憑證效益抵減</span>
+</div>
+<div class="formula-operator">+</div>
+<div class="formula-box">
+                        (總用電量 - 綠電)
+                        <span class="formula-subtext">剩餘一般用電</span>
+</div>
+<div class="formula-operator">×</div>
+<div class="formula-box">
+                        電力排碳係數
+                        <span class="formula-subtext">台電係數</span>
+</div>
+
+
+   
+</div>
+</div>
+
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<p>資料來源：經濟部能源署、國家再生能源憑證中心</p>
+</footer>
+</div>
+</body>
+</html>
